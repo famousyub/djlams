@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.elearning</groupId>
+		<artifactId>e-learning-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<packaging>jar</packaging>
+	<name>e-learning-microservice-rest-1</name>
+	<description>Project that expose a RESTful microservice. Since this is a demo I named it just rest-1</description>
+	<artifactId>e-learning-microservice-rest-1</artifactId>
+
+	<properties>
+		<main.basedir>${basedir}/..</main.basedir>
+		<jsonpath.version>0.9.0</jsonpath.version>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>com.elearning</groupId>
+			<artifactId>e-learning-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.elearning</groupId>
+			<artifactId>e-learning-service</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		
+
+		<dependency>
+			<!-- lib to centralize all config properties in the cloud under the project 
+				e-learning-cloudconfig. I'm saving the server port number for this microservice 
+				so e-learning-cloudconfig should be run first. -->
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<!-- needed by cloud config in order to set the module name. bootstrap.yml -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<!-- automatic discovery service lib. Note that eureka lib has actuator 
+				lib as a dependency but we explicitly declare it because cloud-config-client 
+				needs it as well (if we decide to remove eureka lib then cloud-config-client 
+				will still have the lib.). -->
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+
+		<dependency>
+			<!-- needed to config ehcache without xml (using java class config) -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+
+		<dependency>
+			<!-- Hystrix is a latency and fault tolerance library designed to isolate 
+				points of access to remote systems, services and 3rd party libraries, stop 
+				cascading failure and enable resilience in complex distributed systems where 
+				failure is inevitable. -->
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
+		</dependency>
+
+		<dependency>
+			<!-- A Java DSL for reading JSON documents -->
+			<!-- JsonPath expressions always refer to a JSON structure in the same 
+				way as XPath expression are used in combination with an XML document. The 
+				"root member object" in JsonPath is always referred to as $ regardless if 
+				it is an object or array. JsonPath expressions can use the dot–notation $.store.book[0].title 
+				or the bracket–notation $['store']['book'][0]['title'] -->
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path-assert</artifactId>
+			<version>${jsonpath.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>

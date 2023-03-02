@@ -1,0 +1,58 @@
+# Directories #
+/build/
+/bin/
+target/ 
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+/e-learning-cloudconfig/target/
+/e-learning-hystrix/target/
+/e-learning-microservice-rest-1/target/
+/e-learning-microservice-rest-2/target/
+/e-learning-microservice-rest-3/target/
+/e-learning-model/target/
+/e-learning-service/target/
+/e-learning-service-discovery-eureka/target/
+/e-learning-web/target/
+/e-learning-authentication-server/target/

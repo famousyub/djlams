@@ -1,0 +1,2 @@
+class Assignment < Deliverable
+end
